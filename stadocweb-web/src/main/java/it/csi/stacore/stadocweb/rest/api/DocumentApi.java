@@ -1,4 +1,4 @@
-package it.csi.stacore.stadocweb.service;
+package it.csi.stacore.stadocweb.rest.api;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -7,11 +7,11 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.SecurityContext;
 
-@Path("/test")
-public interface TestResourceApi {
+@Path("/document")
+public interface DocumentApi {
 
 	 @GET
-	 @Path("/resources")
+	 @Path("/test")
 	 @Produces({ "application/json" })
 	 public boolean testResources(@Context SecurityContext securityContext, @Context HttpHeaders httpHeaders ) throws Exception;
 }

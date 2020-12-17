@@ -19,10 +19,35 @@
 		abstract="false" lazy-init="default" autowire="default">
 	</bean>
 
+	<bean id="encryptUtil"
+		class="it.csi.stacore.stadocweb.util.EncryptUtil"
+		abstract="false" lazy-init="default" autowire="default">
+	</bean>
 
-	<context:component-scan base-package="it.csi..stacore.stadocweb.service.*" />
+	<bean id="environment"
+		class="it.csi.stacore.stadocweb.util.Environment"
+		abstract="false" lazy-init="default" autowire="default">
+	</bean>
+
+
+
+
+	<context:component-scan base-package="it.csi.stacore.stadocweb.rest.api.*" />
+	<context:component-scan base-package="it.csi.stacore.stadocweb.business.*" />
+	<context:component-scan base-package="it.csi.stacore.stadocweb.util.*" />
+
+
 	<context:annotation-config  />
 	<aop:aspectj-autoproxy />
 	<aop:config proxy-target-class="true"/>
+
+	<bean id="pdProxyFactory" class="it.csi.stacore.stadocweb.util.PdProxyFactory"/>
+
+	<!-- STADOC -->
+    <bean id="stadocSrv"
+          class="it.csi.stacore.stadoc.interfacecsi.stadoc.StadocSrv"
+          factory-bean="pdProxyFactory" factory-method="getObject">
+        <constructor-arg value="classpath:/pd/defpd_stadoc.xml"/>
+    </bean>
 
 </beans>

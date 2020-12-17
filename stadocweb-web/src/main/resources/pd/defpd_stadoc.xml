@@ -1,0 +1,143 @@
+<porta-delegata name="stadoc.stadoc">
+	<services>
+		<service name="stadoc"
+			public-interface-class="it.csi.stacore.stadoc.interfacecsi.stadoc.StadocSrv"
+			top-version="1.1.0">
+			<operations>
+				<operation name="archiviaDocumentoLogico" type="synch-call"
+					since="1.0.0">
+					<param-list>
+						<param name="request"
+							type="it.csi.stacore.stadoc.dto.stadoc.RequestArchiviaDocumentoLogico" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.stadoc.dto.stadoc.ResponseArchiviaDocumento" />
+				</operation>
+				<operation name="archiviaDocumentoFisico" type="synch-call"
+					since="1.0.0">
+					<param-list>
+						<param name="request"
+							type="it.csi.stacore.stadoc.dto.stadoc.RequestArchiviaDocumentoFisico" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.stadoc.dto.stadoc.ResponseArchiviaDocumento" />
+				</operation>
+				<operation name="protocollaDocumentoLogico" type="synch-call"
+					since="1.0.0">
+					<param-list>
+						<param name="request"
+							type="it.csi.stacore.stadoc.dto.stadoc.RequestProtocollaDocumentoLogico" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.stadoc.dto.stadoc.ResponseProtocollaDocumento" />
+				</operation>
+				<operation name="protocollaDocumentoFisico" type="synch-call"
+					since="1.0.0">
+					<param-list>
+						<param name="request"
+							type="it.csi.stacore.stadoc.dto.stadoc.RequestProtocollaDocumentoFisico" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.stadoc.dto.stadoc.ResponseProtocollaDocumento" />
+				</operation>
+				<operation name="salvaDocumento" type="synch-call" since="1.0.0">
+					<param-list>
+						<param name="request"
+							type="it.csi.stacore.stadoc.dto.stadoc.RequestSalvaDocumento" />
+					</param-list>
+					<ret-val type="it.csi.stacore.stadoc.dto.stadoc.ResponseSalvaDocumento" />
+				</operation>
+				<operation name="eliminaDocumento" type="synch-call"
+					since="1.0.0">
+					<param-list>
+						<param name="request"
+							type="it.csi.stacore.stadoc.dto.stadoc.RequestEliminaDocumento" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.stadoc.dto.stadoc.ResponseEliminaDocumento" />
+				</operation>
+				<operation name="salvaDocumentoLogico" type="synch-call"
+					since="1.0.0">
+					<param-list>
+						<param name="request"
+							type="it.csi.stacore.stadoc.dto.stadoc.RequestSalvaDocumentoLogico" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.stadoc.dto.stadoc.ResponseSalvaDocumentoLogico" />
+				</operation>
+				<operation name="cambiaStatoRichiesta" type="synch-call"
+					since="1.0.0">
+					<param-list>
+						<param name="request"
+							type="it.csi.stacore.stadoc.dto.stadoc.RequestCambiaStatoRichiesta" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.stadoc.dto.stadoc.ResponseCambiaStatoRichiesta" />
+				</operation>
+				<operation name="recuperaRiferimentoDocumentoFisico" type="synch-call"
+					since="1.0.0">
+					<param-list>
+						<param name="request"
+							type="it.csi.stacore.stadoc.dto.stadoc.RequestRecuperaRiferimentoDocumentoFisico" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.stadoc.dto.stadoc.ResponseRecuperaRiferimentoDocumentoFisico" />
+				</operation>
+				<!-- operazione per monitoraggio -->
+				<operation name="testResources" type="synch-call">
+					<param-list>
+					</param-list>
+					<ret-val type="boolean" />
+				</operation>
+				<!-- operazioni per diagnostica -->
+				<operation name="selfCheck" type="synch-call">
+					<param-list>
+						<param name="alreadyCalled" type="it.csi.coopdiag.api.CalledResource[]" />
+					</param-list>
+					<ret-val type="it.csi.coopdiag.api.InvocationNode" />
+				</operation>
+				<operation name="hasSelfCheck" type="synch-call">
+					<param-list>
+					</param-list>
+					<ret-val type="boolean" />
+				</operation>
+			</operations>
+		</service>
+	</services>
+	<!--
+	<config>
+		<url-pa>**not used**</url-pa>
+		<pluggable-pd-list chooser-class="it.csi.csi.porte.FixedDelegateChooser">
+			<pluggable-pd name="stadoc"
+				class="it.csi.csi.porte.ejb20.PortaDelegataEJB" url-pa="stadoc.ejb.ApplStadocPA"
+				url-qm="stadoc.ejb.ApplStadocQMGR">
+				<properties>
+					<property name="java.naming.provider.url" value="@stacore.stadoc.stadoc.pa.url@" />
+					<property name="java.naming.factory.initial" value="org.jnp.interfaces.NamingContextFactory" />
+					<property name="jnp.disableDiscovery" value="true" />
+				</properties>
+			</pluggable-pd>
+		</pluggable-pd-list>
+		<queue-manager url="" />
+	</config>
+	 -->
+	<!-- NUOVA MODALITA' DI FRUIZIONE HTTP -->
+	<config>
+    <url-pa>**not used**</url-pa>
+    <pluggable-pd-list chooser-class="it.csi.csi.porte.FixedDelegateChooser">
+      <pluggable-pd
+        name="stadoc"
+        class="it.csi.csi.porte.soap.apache.PortaDelegataSoap"
+        url-pa="${stacore.stadoc.stadoc.pa.url}/stadocApplStadocPabr/servlet/rpcrouter">
+        <properties>
+         	<property name="csi.connection.timeout" value="10000" />
+        </properties>
+      </pluggable-pd>
+    </pluggable-pd-list>
+    <queue-manager url=""/>
+  </config>
+
+
+
+
+</porta-delegata>

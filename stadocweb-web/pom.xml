@@ -100,6 +100,107 @@
 			<version>${aspectjweaver.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis-jaxrpc</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>0.4</version>
+		</dependency>
+
+		<dependency>
+            <groupId>soap</groupId>
+            <artifactId>soap</artifactId>
+            <version>${soap.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+		<dependency>
+			<groupId>javax.wsdl</groupId>
+			<artifactId>javax.wsdl</artifactId>
+			<version>1.4.0.v200706111329</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>it.csi.doqui</groupId>
+			<artifactId>ecmengine-mtom-client</artifactId>
+			<version>${ecmengine-mtom-client}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.doqui</groupId>
+			<artifactId>ecmengine-ws-client</artifactId>
+			<version>${ecmengine-ws-client}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>stadoc-stadoc-client</artifactId>
+			<version>${stadoc-stadoc-client.version}</version>
+		</dependency>
+
+		<dependency>
+            <groupId>it.csi.csi</groupId>
+            <artifactId>csi-core</artifactId>
+            <version>${csi.lib.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>it.csi.csi</groupId>
+            <artifactId>csi-stadapter</artifactId>
+            <version>${csi.lib.version}</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>it.csi.csi</groupId>
+            <artifactId>csi-ejb</artifactId>
+            <version>${csi.lib.version}</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>it.csi.csi</groupId>
+            <artifactId>csi-rmi</artifactId>
+            <version>${csi.lib.version}</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>it.csi.csi</groupId>
+            <artifactId>csi-apachesoap</artifactId>
+            <version>${csi.lib.version}</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>it.csi.coopdiag</groupId>
+            <artifactId>coop-diag</artifactId>
+            <version>${coop-diag.version}</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>it.csi.util</groupId>
+            <artifactId>util-perf</artifactId>
+            <version>1.0.1</version>
+        </dependency>
 
 
 	</dependencies>

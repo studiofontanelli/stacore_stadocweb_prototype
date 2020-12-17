@@ -25,7 +25,7 @@
 		<developer>
 			<id>andrea.fontanelli</id>
 			<name>Andrea Fontanelli</name>
-			<email>andrea1.fontanelli@consulenti.csi.it</email>
+			<email>andrea.fontanelli@eng.it</email>
 		</developer>
 	</developers>
 
@@ -236,6 +236,10 @@
 		<lowagie.version>4.2.0</lowagie.version>
 		<commons.collections.version>3.2</commons.collections.version>
 		<!-- Client Libraries -->
+
+
+		<ecmengine-mtom-client>13.4.0</ecmengine-mtom-client>
+		<ecmengine-ws-client>13.4.0</ecmengine-ws-client>
 		<staonsrv-staonsrv.client>3.16.0</staonsrv-staonsrv.client>
 		<staonsrv-staonutil.client>3.12.0</staonsrv-staonutil.client>
 		<starissrv-serviziorissrvpol.client>6.5.0</starissrv-serviziorissrvpol.client>

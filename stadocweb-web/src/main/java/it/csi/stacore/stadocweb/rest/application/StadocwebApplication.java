@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import it.csi.stacore.stadocweb.rest.interceptor.LoggingInterceptor;
+import it.csi.stacore.stadocweb.rest.interceptor.SecurityInterceptor;
 import it.csi.stacore.stadocweb.util.ApplicationContextManager;
 import it.csi.stacore.stadocweb.util.Constants;
 import it.csi.stacore.stadocweb.util.Tracer;
@@ -36,6 +37,7 @@ public class StadocwebApplication extends Application {
 	private List<String> getServiceList(){
 		List<String> l = new ArrayList<String>();
 		l.add("testResourceApi");
+		l.add("documentApi");
 		//l.add("sendApi");
 		return l;
 
@@ -44,8 +46,8 @@ public class StadocwebApplication extends Application {
 	private List<Class> getProviderList(){
 		List<Class> l = new ArrayList<Class>();
 		//l.add(ExceptionHandler.class);
-		//l.add(LoggingInterceptor.class);
-		//l.add(SecurityInterceptor.class);
+		l.add(LoggingInterceptor.class);
+		l.add(SecurityInterceptor.class);
 		return l;
 
 	}
@@ -53,10 +55,6 @@ public class StadocwebApplication extends Application {
 	public StadocwebApplication() {
 		final String method = "CONSTRUCTOR";
 		try {
-
-
-
-
 			// Resources
 			for(String api : getServiceList()) {
 				Tracer.info(LOG, getClass().getName(), method, "adding api " + api);

@@ -25,13 +25,9 @@ public class LoggingInterceptor implements PreProcessInterceptor {
 	@Context
 	HttpServletRequest servletRequest;
 
-
-
 	@Override
 	public ServerResponse preProcess(HttpRequest request, ResourceMethod resourceMethod) throws Failure, WebApplicationException {
 		String method = "preProcess";
-
-		//SpringContextLoaderListener
 		String methodName = resourceMethod.getMethod().getName();
 		//Tracer.debug(LOG, getClass().getName(), methodName, "pathInfo= " + servletRequest.getPathInfo());
 		Tracer.debug(LOG, getClass().getName(), method, "Attempt to invoke \"" + servletRequest.getPathInfo() + "\" from " + servletRequest.getRemoteAddr());
